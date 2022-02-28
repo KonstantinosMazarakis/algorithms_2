@@ -72,7 +72,26 @@ class SinglyLinkedList {
         return false;
     }
 
+    removeFront(){
+        if (this.head = null){
+            return null
+        }
+            var temp = this.head
+            this.head = this.head.next;
+            temp.next = null
+    }
 
+    removeBack(){
+        if (this.head = null){
+            return null
+        }
+        let runner = this.head;
+    while (runner.next != this.tail){
+        runner = runner.next
+    }
+    this.tail = runner
+    this.tail.next = null
+    }
 }
 
 var new_sll = new SinglyLinkedList();
@@ -93,3 +112,19 @@ console.log(new_sll.contains(4)) // true
 console.log(new_sll.contains(6)) // true
 console.log(new_sll.contains(7)) // true
 console.log(new_sll.contains(11)) // false
+
+
+new_sll.display(); // 6 - 3 - 8 - 4 - 7
+
+new_sll.removeFront();
+
+new_sll.display();  // 3 - 8 - 4 - 7
+
+// what method could you run to test if the front has been removed?
+
+new_sll.removeBack();
+
+new_sll.display();
+
+
+// what method could you run to test if the front has been removed?

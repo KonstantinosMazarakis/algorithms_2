@@ -9,9 +9,35 @@
 // Second: rework facts #2 and #3 to reduce stack consumption and expand rGCF ’s reach. You should be able to compute rGCF(123456,987654). Because rGCF(123456, 987654) might exceed your call stack size, Is there a good way to write this function so that it doesn't fail when X and Y grow to certain sizes? Try it out and run these other test cases:
 
 function recursiveGreatestCommonFactor(num1,num2){
-    
-
+    var num1_gcf= 0
+    var num2_gcf=0
+    var greatest = 0
+    for(var i = 0; i <  num1;i++){
+        if(num1 % i == 0){
+            num1_gcf = i
+        }
+        if(num2 % i == 0){
+            num2_gcf = i
+        }
+        if(num1_gcf == num2_gcf){
+            greatest = num1_gcf
+        }
+    }
+console.log(greatest)
 }
+
+
+recursiveGreatestCommonFactor(50,180)
+
+
+function recursiveGreatestCommonFactor(num1,num2){
+    if(num2 == 0){
+        return console.log(num1)
+    }
+    return recursiveGreatestCommonFactor(num2, num1 % num2)
+}
+
+recursiveGreatestCommonFactor(50,180)
 
 // console.log(recursiveGreatestCommonFactor(50,180)); // 10
 // console.log(recursiveGreatestCommonFactor(7,35)); // 7

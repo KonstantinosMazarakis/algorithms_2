@@ -14,11 +14,22 @@
 // [9,     |      10] <------ whittle down to 1 or 2 items to check and solve!
 
 
-function recursiveBinarySearch(arr,target) {
 
+
+function binarySearch(
+    sortedNums,
+    searchNum,
+    leftIdx = 0,
+    rightIdx = sortedNums.length - 1
+) {
+    if (leftIdx > rightIdx) return -1;
+    const midIdx = Math.floor((rightIdx + leftIdx) / 2);
+    if (sortedNums[midIdx] === searchNum) return midIdx;
+    if (searchNum < sortedNums[midIdx]) return binarySearch(sortedNums, searchNum, 0, midIdx - 1);
+    return binarySearch(sortedNums, searchNum, midIdx + 1, rightIdx);
 }
 
-
+arr = [1,2,3,5,7,9,10,11,13,14,15,56,78], 5
 // [1, 2], -2 ---> -1
 // [1, 2], 4 ---> -1
 // [1, 2], 1 ---> 0
